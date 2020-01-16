@@ -10,6 +10,7 @@ public class FibersMain {
     private static Logger log = Logger.getAnonymousLogger();
 
     public static void main(String[] args) throws InterruptedException {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");
         log.info("Hello. Can we implement something with Fibers (OpenJDK Project Loom)?");
 
         var fiberScope = FiberScope.open();
