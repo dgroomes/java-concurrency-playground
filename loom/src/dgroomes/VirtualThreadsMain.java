@@ -10,6 +10,8 @@ import java.util.logging.Logger;
  * REQUIRES an experimental JDK built from the OpenJDK Project Loom branch https://wiki.openjdk.java.net/display/loom/Main
  *
  * Reference my notes for building the JDK on macOS https://gist.github.com/dgroomes/3af073b71c2c34581a155af9daa86564
+ *
+ * Reference the official Virtual Threads example at https://wiki.openjdk.java.net/display/loom/Getting+started
  */
 public class VirtualThreadsMain {
 
