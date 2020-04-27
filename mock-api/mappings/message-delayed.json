@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/message",
+    "queryParameters": {
+      "delay": {
+        "matches": "5"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "Hello world! (Delayed by 5 seconds)",
+    "fixedDelayMilliseconds": 5000
+  }
+}
