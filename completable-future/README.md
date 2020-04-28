@@ -28,6 +28,10 @@ Got response: Hello C! (delayed by 4 seconds)
 Finished. Execution time: PT4.032173S
 ```
 
+There is a second program called `ComposingMain` that goes into more depth. Run it with:
+
+`java --enable-preview --source 14 completable-future/src/dgroomes/ComposingMain.java`
+
 ### Reference 
 
 * _CompletableFuture for Asynchronous Programming in Java 8_ <https://community.oracle.com/docs/DOC-995305>
