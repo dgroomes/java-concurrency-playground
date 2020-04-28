@@ -1,36 +1,34 @@
 # java-concurrency-playground
 
-Learning and exploring concurrency in Java. Using examples from <https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html>
+Learning and exploring concurrency in Java.
 
 ## Sub-projects
 
+Concurrency concepts (the "what") and constructs (APIs and language features) are illustrated in standalone 
+sub-projects. 
+
 ### `loom/`
 
-Trying out _Project_ Loom and the new programming paradigm for Java using *user-mode threads*.
+Learning about _Project Loom_ and the new "virtual" threads <https://wiki.openjdk.java.net/display/loom/Main>.
 
-REQUIRES an experimental JDK built from the OpenJDK Project Loom branch <https://wiki.openjdk.java.net/display/loom/Main>.
-
-Run it with `java loom/src/dgroomes/VirtualThreadsMain.java`
+See [loom/README.md](loom/README.md).
 
 ### `interrupts/`
 
 Learning about interrupts <https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html>
 
-Run with `java interrupts/src/dgroomes/InterruptsMain.java`
+See [interrupts/README.md](interrupts/README.md).
 
 ###  `mock-api/`
 
-`mock-api` runs an instance of the excellent HTTP mock server WireMock <http://wiremock.org/docs/>. This project only 
-serves as a vehicle to exercise the concurrency constructs of the other projects.
+Run an instance of the excellent HTTP mock server WireMock <http://wiremock.org/docs/>. This sub-project only serves as
+a vehicle to exercise the concurrency constructs of the other sub-projects.
 
 See [mock-api/README.md](mock-api/README.md).   
 
 ### `completable-future/`
 
-Learning and experimenting with the `CompletableFuture` and related APIs.
+Learning about `CompletableFuture` <https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/concurrent/CompletableFuture.html>
+and related APIs.
 
 See [completable-future/README.md](completable-future/README.md).
-
-Reference: 
-
-* _CompletableFuture for Asynchronous Programming in Java 8_ <https://community.oracle.com/docs/DOC-995305>

@@ -27,3 +27,7 @@ Got response: Hello B! (delayed by 2 seconds)
 Got response: Hello C! (delayed by 4 seconds)
 Finished. Execution time: PT4.032173S
 ```
+
+### Reference 
+
+* _CompletableFuture for Asynchronous Programming in Java 8_ <https://community.oracle.com/docs/DOC-995305>
