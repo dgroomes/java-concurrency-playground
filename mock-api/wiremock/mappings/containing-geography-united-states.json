@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "GET",
-    "urlPath": "/containing-geography/United%20States"
+    "urlPath": "/containing-geography/United+States"
   },
   "response": {
     "status": 200,

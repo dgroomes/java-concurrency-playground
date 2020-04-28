@@ -1,9 +1,11 @@
 package dgroomes;
 
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
@@ -54,7 +56,9 @@ public class ComposingMain {
         private void execute() {
             var start = Instant.now();
 
-            var m1Completable = requestContainingGeography("Minneapolis");
+            var m1Completable = requestContainingGeography("Minneapolis")
+                    .thenApply(geo -> requestContainingGeography(geo).join())
+                    .thenApply(geo -> requestContainingGeography(geo).join());
             var m2Completable = requestMessage("A", 1);
             var m3Completable = requestMessage("B", 2);
 
@@ -89,7 +93,8 @@ public class ComposingMain {
          * @param delay the delay
          */
         private CompletableFuture<String> requestMessage(String name, int delay) {
-            return request(String.format("/message?name=%s&delay=%s", name, delay));
+            var encodedName = URLEncoder.encode(name, StandardCharsets.UTF_8);
+            return request(String.format("/message?name=%s&delay=%s", encodedName, delay));
         }
 
         /**
@@ -98,7 +103,8 @@ public class ComposingMain {
          * @param geography the geography
          */
         private CompletableFuture<String> requestContainingGeography(String geography) {
-            return request(String.format("/containing-geography/%s", geography));
+            var encodedGeo = URLEncoder.encode(geography, StandardCharsets.UTF_8);
+            return request(String.format("/containing-geography/%s", encodedGeo));
         }
     }
 }
