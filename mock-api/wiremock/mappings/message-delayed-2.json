@@ -4,13 +4,16 @@
     "urlPath": "/message",
     "queryParameters": {
       "delay": {
-        "matches": "5"
+        "matches": "2"
       }
     }
   },
   "response": {
     "status": 200,
-    "body": "Hello world! (Delayed by 5 seconds)",
-    "fixedDelayMilliseconds": 5000
+    "transformers": [
+      "response-template"
+    ],
+    "bodyFileName": "hello-world-delayed.txt",
+    "fixedDelayMilliseconds": 2000
   }
 }

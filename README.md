@@ -20,14 +20,16 @@ Run with `java interrupts/src/dgroomes/InterruptsMain.java`
 
 ###  `mock-api/`
 
-Work In Progress. `mock-api` runs an instance of the excellent HTTP mock server WireMock <http://wiremock.org/docs/>. This project only 
+`mock-api` runs an instance of the excellent HTTP mock server WireMock <http://wiremock.org/docs/>. This project only 
 serves as a vehicle to exercise the concurrency constructs of the other projects.
 
-See [mock-api/README.md](mock-api/README.md]).   
+See [mock-api/README.md](mock-api/README.md).   
 
 ### `completable-future/`
 
-Work In Progress. Learning and experimenting with the `CompletableFuture` and related APIs.
+Learning and experimenting with the `CompletableFuture` and related APIs.
+
+See [completable-future/README.md](completable-future/README.md).
 
 Reference: 
 

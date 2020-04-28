@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/message",
+    "queryParameters": {
+      "delay": {
+        "matches": "1"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "bodyFileName": "hello-world-delayed.txt",
+    "fixedDelayMilliseconds": 1000
+  }
+}

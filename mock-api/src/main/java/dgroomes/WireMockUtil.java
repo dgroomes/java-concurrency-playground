@@ -1,16 +1,13 @@
 package dgroomes;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.common.FileSource;
 import com.github.tomakehurst.wiremock.common.SingleRootFileSource;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.standalone.JsonFileMappingsSource;
-import com.github.tomakehurst.wiremock.stubbing.StubMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
@@ -21,44 +18,40 @@ public class WireMockUtil {
     private static final Logger log = LoggerFactory.getLogger(WireMockUtil.class);
 
     /**
-     * Read a WireMock stub mapping from a file
+     * Enable the "files" and "mappings" sources that WireMock will use for its associated files and mappings
+     * definitions
      *
-     * @param filePath of the JSON file that defines a WireMock stub
-     * @return a StubMapping
+     * @param options               the subject WireMockConfiguration
+     * @param filesDirectoryPath    the path to the directory containing WireMock mapping definition files written in JSON
+     * @param mappingsDirectoryPath the path to the directory containing WireMock mapping definition files written in JSON
      */
-    public StubMapping readStub(String filePath) throws IOException {
-        log.debug("Reading WireMock stub '{}'", filePath);
-        var file = new File(filePath);
-        if (!file.exists()) {
-            var message = String.format("Cannot read WireMock stub '%s'. This file does not exist.", file.getAbsolutePath());
-            throw new IOException(message);
-        }
-        var path = file.toPath();
-        var bytes = Files.readAllBytes(path);
-        var content = new String(bytes, StandardCharsets.UTF_8);
-        return StubMapping.buildFrom(content);
+    public static void enableFilesAndMappingsDirs(WireMockConfiguration options, String filesDirectoryPath, String mappingsDirectoryPath) throws IOException {
+        log.debug("Enabling the files and mappings directories with '{}' and '{}' respectively", filesDirectoryPath,
+                mappingsDirectoryPath);
+        var filesSource = fileSource(filesDirectoryPath, "files");
+        options.fileSource(filesSource);
+        var mappingsSource = fileSource(mappingsDirectoryPath, "mappings");
+        options.mappingSource(new JsonFileMappingsSource(mappingsSource));
     }
 
     /**
-     * Load WireMock stubs from the JSON mapping files in a directory
+     * Verify the directory exists at the path provided and return a wrapping FileSource object
      *
-     * @param directoryPath the path to the directory containing WireMock mapping definition files written in JSON
+     * @param dirPath the directory to validate exists
+     * @param type    either "mappings" or "files"
+     * @return a FileSource that wraps the provided directory
      */
-    public static void loadStubsFromDirectory(WireMockServer wireMockServer, String directoryPath) throws IOException {
-        log.debug("Loading WireMock stubs from directory '{}'", directoryPath);
-        var path = Paths.get(directoryPath);
+    private static FileSource fileSource(String dirPath, String type) throws IOException {
+        var path = Paths.get(dirPath);
         var file = path.toFile();
         if (!file.exists()) {
             var msg = String.format("""
-                    Could not load stubs because the directory was not found 
+                    Can not enable the %s directory because the directory was not found 
                       Provided path: %s
                       Absolute path: %s
-                    """, directoryPath, path);
+                    """, type, dirPath, path.toAbsolutePath());
             throw new IOException(msg);
         }
-
-        var fileSource = new SingleRootFileSource(file);
-        var mappingsSource = new JsonFileMappingsSource(fileSource);
-        wireMockServer.loadMappingsUsing(mappingsSource);
+        return new SingleRootFileSource(file);
     }
 }
