@@ -54,9 +54,9 @@ public class ComposingMain {
         private void execute() {
             var start = Instant.now();
 
-            var m1Completable = request("message?name=A&delay=1");
-            var m2Completable = request("message?name=B&delay=2");
-            var m3Completable = request("message?name=C&delay=4");
+            var m1Completable = requestContainingGeography("Minneapolis");
+            var m2Completable = requestMessage("A", 1);
+            var m3Completable = requestMessage("B", 2);
 
             m1Completable.join();
             m2Completable.join();
@@ -80,6 +80,25 @@ public class ComposingMain {
                     .thenApply(HttpResponse::body);
             future.thenAccept(body -> System.out.printf("Got response: %s\n", body));
             return future;
+        }
+
+        /**
+         * Build a request for "/message"
+         *
+         * @param name  the name
+         * @param delay the delay
+         */
+        private CompletableFuture<String> requestMessage(String name, int delay) {
+            return request(String.format("/message?name=%s&delay=%s", name, delay));
+        }
+
+        /**
+         * Build a request for "/containing-geography"
+         *
+         * @param geography the geography
+         */
+        private CompletableFuture<String> requestContainingGeography(String geography) {
+            return request(String.format("/containing-geography/%s", geography));
         }
     }
 }

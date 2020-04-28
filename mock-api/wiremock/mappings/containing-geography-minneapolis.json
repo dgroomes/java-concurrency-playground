@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/containing-geography/Minneapolis"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "body": "Minnesota",
+    "fixedDelayMilliseconds": 1000
+  }
+}

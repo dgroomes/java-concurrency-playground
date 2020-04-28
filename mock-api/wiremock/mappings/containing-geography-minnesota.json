@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/containing-geography/Minnesota"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "body": "United States",
+    "fixedDelayMilliseconds": 2000
+  }
+}

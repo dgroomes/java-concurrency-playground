@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/containing-geography/North%20America"
+  },
+  "response": {
+    "status": 500,
+    "body": "Failed to get containing geography!"
+  }
+}

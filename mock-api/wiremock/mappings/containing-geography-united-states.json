@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/containing-geography/United%20States"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "body": "North America",
+    "fixedDelayMilliseconds": 4000
+  }
+}
