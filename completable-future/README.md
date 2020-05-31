@@ -11,7 +11,7 @@ that was introduced in Java 11.
     * Follow the instructions at [../mock-api/README.md](../mock-api/README.md)
 1. From the repository root, run the program with:
    
-   `java --enable-preview --source 14 completable-future/src/dgroomes/CompletableFuturesMain.java`
+   `java --enable-preview --source 14 completable-future/src/main/java/dgroomes/CompletableFuturesMain.java`
    
 You should see output like this:
 

@@ -25,7 +25,7 @@ public class ComposingMain {
         new App(client).execute();
     }
 
-    enum HttpLogLevel {ERROR, INFO, DEBUG, TRACE}
+    public enum HttpLogLevel {ERROR, INFO, DEBUG, TRACE}
 
     /**
      * Enable logs in the built-in Java HTTP client.

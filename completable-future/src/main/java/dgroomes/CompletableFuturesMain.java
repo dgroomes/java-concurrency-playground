@@ -30,7 +30,7 @@ public class CompletableFuturesMain {
         new App(client, true).execute();
     }
 
-    enum HttpLogLevel {ERROR, INFO, DEBUG, TRACE}
+    public enum HttpLogLevel {ERROR, INFO, DEBUG, TRACE}
 
     /**
      * Enable logs in the built-in Java HTTP client.

@@ -7,4 +7,4 @@ threads instead of traditional operating system threads.
 
 1. Use a Loom JDK
     * Download or build the JDK from the OpenJDK Project Loom branch <https://wiki.openjdk.java.net/display/loom/Main>
-1. From the repository root, run the program with: `java loom/src/dgroomes/VirtualThreadsMain.java`
+1. From the repository root, run the program with: `java loom/src/main/java/dgroomes/VirtualThreadsMain.java`

@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class VirtualThreadsMain {
 
-    private static Logger log = Logger.getAnonymousLogger();
+    private static final Logger log = Logger.getAnonymousLogger();
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");

@@ -1,8 +1,4 @@
-plugins {
-    java
-}
-
-allprojects {
+subprojects {
     // Do we really need to declare this java plugin here *and* at the top of this file?
     apply(plugin = "java")
     apply(plugin = "application")
@@ -11,7 +7,7 @@ allprojects {
         jcenter()
     }
 
-    java {
+    configure<JavaPluginExtension> {
         sourceCompatibility = JavaVersion.VERSION_14
         targetCompatibility = JavaVersion.VERSION_14
     }
@@ -39,3 +35,14 @@ allprojects {
     }
 }
 
+project(":completable-future") {
+    configure<ApplicationPluginConvention> {
+        mainClassName = "dgroomes.CompletableFuturesMain"
+    }
+}
+
+project(":interrupts") {
+    configure<ApplicationPluginConvention> {
+        mainClassName = "dgroomes.InterruptsMain"
+    }
+}
