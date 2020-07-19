@@ -7,21 +7,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Illustrating how `java.util.Timer` works.
+ * Illustrating how `java.util.Timer` works with regards to the backing thread being a daemon thread or a non-daemon
+ * thread.
  * <p>
  * See https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Timer.html
  */
-public class TimerMain {
+public class TimerDaemonMain {
 
     private static final Logger log = Logger.getAnonymousLogger();
 
     public static void main(String[] args) {
         System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");
-        log.log(Level.INFO, "Hello! Let's learn about the java.util.Timer class. NOT YET IMPLEMENTED");
+        log.log(Level.INFO, "Hello! Let's learn about the java.util.Timer class. Specifically let's learn what" +
+                "happens when its backing thread is a daemon thread or a non-daemon thread.");
 
         boolean useDaemonThread;
         if (args.length == 0) {
-            log.info("No option provided. Defaulting to --no-daemon");
+            log.info("No option provided. Defaulting to --non-daemon-thead");
             useDaemonThread = true;
         } else {
             var option = args[0];
@@ -50,7 +52,7 @@ public class TimerMain {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                log.info("Hello from a timer task!");
+                log.info("Time is up!");
                 timer.cancel();
                 log.info("""
                         The timer was cancelled via a call to the 'cancel()' method. This guarantees that this is the

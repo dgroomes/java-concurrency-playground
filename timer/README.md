@@ -16,4 +16,7 @@ Consider that when implementing timing-related code.
 ### Instructions
 
 1. Use Java 14
-1. From the repository root, run the program with: `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerMain.java`
+1. From the repository root, run any of the different main methods with:
+  * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerDaemonMain.java --non-daemon-thread`
+  * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerDaemonMain.java --daemon-thread`
+  * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerMultipleTasksMain.java`
