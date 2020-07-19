@@ -33,6 +33,13 @@ and related APIs.
 
 See [completable-future/README.md](completable-future/README.md).
 
+### `timer/`
+
+Learning about `java.util.Timer` <https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Timer.html>.
+and related APIs.
+
+See [timer/README.md](timer/README.md).
+
 ## Help
 
 You will have a hard time setting this project up correctly in your IDE (Intellij for example). Because these projects
