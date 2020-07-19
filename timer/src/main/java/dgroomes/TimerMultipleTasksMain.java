@@ -14,6 +14,6 @@ public class TimerMultipleTasksMain {
 
     public static void main(String[] args) {
         System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");
-        log.log(Level.INFO, "Hello! Let's learn about the java.util.Timer class. NOT YET IMPLEMENTED");
+        log.log(Level.INFO, "Hello! Let's learn about the java.util.Timer class with multiple tasks. NOT YET IMPLEMENTED");
     }
 }
