@@ -37,7 +37,7 @@ public class VirtualThreadsMain {
             return "task 2";
         };
 
-        try (ExecutorService executor = Executors.newUnboundedVirtualThreadExecutor()) {
+        try (ExecutorService executor = Executors.newVirtualThreadExecutor()) {
             executor.submitTasks(List.of(task1, task2));
             executor.shutdown();
             log.info("Wait for the tasks to execute to completion");
