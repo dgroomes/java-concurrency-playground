@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class TimerMultipleTasksMain {
 
-    private static final Logger log = Logger.getAnonymousLogger();
+    private static final Logger log = Logger.getLogger(TimerMultipleTasksMain.class.getName());
 
     public static void main(String[] args) {
         System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");
@@ -32,10 +32,8 @@ public class TimerMultipleTasksMain {
             public void run() {
                 log.info("Task 2");
                 timer.cancel();
-                log.info("""
-                        The timer was cancelled via a call to the 'cancel()' method. This guarantees that this is the
-                        final task to execute. The timer's execution thread should terminate gracefully.
-                        """);
+                log.info("The timer was cancelled via a call to the 'cancel()' method. This guarantees that this is " +
+                        "the final task to execute. The timer's execution thread should terminate gracefully.");
             }
         };
 

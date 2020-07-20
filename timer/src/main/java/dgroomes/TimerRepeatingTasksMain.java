@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class TimerRepeatingTasksMain {
 
-    private static final Logger log = Logger.getAnonymousLogger();
+    private static final Logger log = Logger.getLogger(TimerRepeatingTasksMain.class.getName());
 
     public static void main(String[] args) {
         System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");

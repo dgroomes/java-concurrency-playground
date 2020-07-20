@@ -14,11 +14,11 @@ import java.util.logging.Logger;
  */
 public class TimerDaemonMain {
 
-    private static final Logger log = Logger.getAnonymousLogger();
+    private static final Logger log = Logger.getLogger(TimerDaemonMain.class.getName());
 
     public static void main(String[] args) {
         System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT %4$s %2$s %5$s%6$s%n");
-        log.log(Level.INFO, "Hello! Let's learn about the java.util.Timer class. Specifically let's learn what" +
+        log.log(Level.INFO, "Hello! Let's learn about the java.util.Timer class. Specifically let's learn what " +
                 "happens when its backing thread is a daemon thread or a non-daemon thread.");
 
         boolean useDaemonThread;
@@ -30,7 +30,7 @@ public class TimerDaemonMain {
             useDaemonThread = switch (option) {
                 case "--daemon-thread" -> true;
                 case "--non-daemon-thread" -> false;
-                default -> throw new IllegalStateException(String.format("Provided option '%s' was not recognized", option));
+                default -> throw new IllegalStateException("Provided option '%s' was not recognized".formatted(option));
             };
         }
 
@@ -53,11 +53,6 @@ public class TimerDaemonMain {
             @Override
             public void run() {
                 log.info("Time is up!");
-                timer.cancel();
-                log.info("""
-                        The timer was cancelled via a call to the 'cancel()' method. This guarantees that this is the
-                        final task to execute. The timer's execution thread should terminate gracefully.
-                        """);
             }
         }, TimeUnit.SECONDS.toMillis(3));
     }
