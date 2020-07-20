@@ -42,7 +42,7 @@ public class TimerMultipleTasksMain {
         TimerTask task3 = new TimerTask() {
             @Override
             public void run() {
-                log.info("Task 3. I might never get executed :(");
+                log.info("Task 3. I will never get executed if the timer was canceled :(");
             }
         };
 
