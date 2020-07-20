@@ -20,4 +20,6 @@ Consider that when implementing timing-related code.
   * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerDaemonMain.java --non-daemon-thread`
   * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerDaemonMain.java --daemon-thread`
   * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
+  * (debug mode) `java --enable-preview --source 14 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
+  * (record a Java Flight Recording (JFR)) `java --enable-preview --source 14 -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:StartFlightRecording,dumponexit=true timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
   * `java --enable-preview --source 14 timer/src/main/java/dgroomes/TimerMultipleTasksMain.java`
