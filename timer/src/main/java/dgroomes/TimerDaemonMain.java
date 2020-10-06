@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  * Illustrating how `java.util.Timer` works with regards to the backing thread being a daemon thread or a non-daemon
  * thread.
  * <p>
- * See https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Timer.html
+ * See https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/Timer.html
  */
 public class TimerDaemonMain {
 

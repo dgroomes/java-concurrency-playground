@@ -4,7 +4,7 @@ Run an instance of the excellent HTTP mock server WireMock <http://wiremock.org/
 
 ### Instructions
 
-1. Use Java 14
+1. Use Java 15
 1. From the repository root, build and run the server with `./gradlew :mock-api:run`
 
 ### Notes
