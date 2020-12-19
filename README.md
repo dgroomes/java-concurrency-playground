@@ -1,6 +1,6 @@
 # java-concurrency-playground
 
-Learning and exploring concurrency in Java.
+📚 Learning and exploring concurrency in Java.
 
 ## Sub-projects
 
