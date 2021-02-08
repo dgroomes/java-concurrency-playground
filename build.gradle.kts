@@ -4,7 +4,7 @@ subprojects {
     apply(plugin = "application")
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
 
     configure<JavaPluginExtension> {

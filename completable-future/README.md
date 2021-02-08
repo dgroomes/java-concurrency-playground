@@ -8,7 +8,7 @@ that was introduced in Java 11.
 
 1. Use Java 15
 1. Start the Mock API
-    * Follow the instructions at [../mock-api/README.md](../mock-api/README.md)
+    * Follow the instructions in the README at [../mock-api/](../mock-api/)
 1. From the repository root, run the program with:
    
    `java --enable-preview --source 15 completable-future/src/main/java/dgroomes/CompletableFuturesMain.java`
