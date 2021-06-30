@@ -1,6 +1,7 @@
 package dgroomes;
 
 /**
+ * NOT YET FULLY IMPLEMENTED
  * Learning about interrupts https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html
  * <p>
  * What happens to a thread when the Java process is killed (for example via a SIGINT signal)? Notice how I am not

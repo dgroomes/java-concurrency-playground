@@ -8,5 +8,5 @@ dependencies {
 }
 
 application {
-    mainClassName = "dgroomes.MockServer"
+    mainClass.set("dgroomes.MockServer")
 }

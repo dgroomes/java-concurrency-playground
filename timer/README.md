@@ -15,11 +15,12 @@ Consider that when implementing timing-related code.
 
 ### Instructions
 
-1. Use Java 15
+1. Use Java 16
 1. From the repository root, run any of the different main methods with:
-  * `java --enable-preview --source 15 timer/src/main/java/dgroomes/TimerDaemonMain.java --non-daemon-thread`
-  * `java --enable-preview --source 15 timer/src/main/java/dgroomes/TimerDaemonMain.java --daemon-thread`
-  * `java --enable-preview --source 15 timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
-  * (debug mode) `java --enable-preview --source 15 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
-  * (record a Java Flight Recording (JFR)) `java --enable-preview --source 15 -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:StartFlightRecording,dumponexit=true timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
-  * `java --enable-preview --source 15 timer/src/main/java/dgroomes/TimerMultipleTasksMain.java`
+  * NOTE: execute these commands from the repository root, not the sub-project directory!
+  * `java timer/src/main/java/dgroomes/TimerDaemonMain.java --non-daemon-thread`
+  * `java timer/src/main/java/dgroomes/TimerDaemonMain.java --daemon-thread`
+  * `java timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
+  * (debug mode) `java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
+  * (record a Java Flight Recording (JFR)) `java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:StartFlightRecording,dumponexit=true timer/src/main/java/dgroomes/TimerRepeatingTasksMain.java`
+  * `java timer/src/main/java/dgroomes/TimerMultipleTasksMain.java`

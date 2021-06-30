@@ -42,11 +42,6 @@ See the README in [timer/](timer/).
 
 ## Help
 
-You will have a hard time setting this project up correctly in your IDE (Intellij for example). Because these projects
-use Java language "preview features", you do not get the out-of-the-box "press the green play button" experience you
-may be used to in Intellij. You need to go into the Intellij run configuration and add `--enable-preview` to the VM
-options, and then try to run it again.
-
-Similarly, the `loom/` sub-project is especially advanced to use because it requires an experimental build of OpenJDK.
+The `loom/` sub-project is especially advanced to use because it requires an experimental build of OpenJDK.
 So, for the sake of the usability of the whole project, I've commented out the `:loom` sub-project from being imported
 in the root Gradle project.
