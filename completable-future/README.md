@@ -1,19 +1,23 @@
 # completable-future
 
-This sub-project executes HTTP requests to the [Mock API](../mock-api) using asynchronous requests to showcase the power
+This subproject executes HTTP requests to the [Mock API](../mock-api) using asynchronous requests to showcase the power
 of `CompletableFuture` and the built-in [Java HTTP client](https://openjdk.java.net/groups/net/httpclient/intro.html) 
 that was introduced in Java 11.
 
-### Instructions
 
-1. Use Java 16
-1. Start the Mock API
+## Instructions
+
+Follow these instructions to run the demo program:
+
+1. Use Java 17
+2. Start the Mock API
     * Follow the instructions in the README at [../mock-api/](../mock-api/)
-1. Run the program:
-   * NOTE: execute this from the repository root, not the sub-project directory!
-   * `java completable-future/src/main/java/dgroomes/CompletableFuturesMain.java`
-   * You should see output like this:
+3. Run the program:
+   * ```shell
+     java src/main/java/dgroomes/CompletableFuturesMain.java
      ```
+   * You should see output like this:
+     ```txt
      Executing the program with an implementation that uses synchronously executed HTTP requests. In other words, *no concurrency*.
      Got response: Hello A! (delayed by 1 seconds)
      Got response: Hello B! (delayed by 2 seconds)
@@ -25,10 +29,13 @@ that was introduced in Java 11.
      Got response: Hello C! (delayed by 4 seconds)
      Finished. Execution time: PT4.032173S
      ```
-1. Alternatively, run the second program called `ComposingMain`:
+4. Alternatively, run the second program called `ComposingMain`:
    * This project goes into more depth. Run it with the following command.
-   * `java completable-future/src/main/java/dgroomes/ComposingMain.java`
+   * ```shell
+     java completable-future/src/main/java/dgroomes/ComposingMain.java
+     ```
 
-### Reference 
+
+## Reference 
 
 * [*CompletableFuture for Asynchronous Programming in Java 8*](https://community.oracle.com/docs/DOC-995305)

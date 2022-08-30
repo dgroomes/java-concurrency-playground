@@ -1,3 +1,7 @@
+//plugins {
+//    java app
+//}
+
 subprojects {
     // Do we really need to declare this java plugin here *and* at the top of this file?
     apply(plugin = "java")
@@ -9,7 +13,7 @@ subprojects {
 
     configure<JavaPluginExtension> {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(16))
+            languageVersion.set(JavaLanguageVersion.of(17))
         }
     }
 
