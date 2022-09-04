@@ -3,9 +3,9 @@ package dgroomes;
 import java.util.logging.Logger;
 
 /**
- * Learning about interrupts https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html
+ * Please see the README for more information.
  */
-public class InterruptsMain {
+public class InterruptsRunner {
 
     private static final Logger log = Logger.getAnonymousLogger();
 

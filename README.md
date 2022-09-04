@@ -18,7 +18,7 @@ See the README in [loom/](loom/).
 
 ### `interrupts/`
 
-Learning about interrupts <https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html>
+Learning about interrupts <https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html>.
 
 See the README in [interrupts/](interrupts/).
 
@@ -45,6 +45,13 @@ Learning about `java.util.Timer` <https://docs.oracle.com/en/java/javase/15/docs
 and related APIs.
 
 See the README in [timer/](timer/).
+
+
+### `signals/`
+
+Learning how signals, like `SIGINT`, are handled by a Java program.
+
+See the README in [signals/](signals/).
 
 
 ## Help
