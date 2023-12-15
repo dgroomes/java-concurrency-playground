@@ -6,7 +6,7 @@ Run an instance of the excellent HTTP mock server WireMock <http://wiremock.org/
 
 Follow these instructions to build and run the mock HTTP web server:
 
-1. Use Java 17
+1. Use Java 21
 2. Build and run the server:
    * ```shell
      ../gradlew :mock-api:run

@@ -18,7 +18,7 @@ Consider that when implementing timing-related code.
 
 Follow these instructions to run the programs:
 
-1. Use Java 17
+1. Use Java 21
 1. Try a combination of these invocations of the programs:
   * ```shell
     java src/main/java/dgroomes/TimerDaemonMain.java --non-daemon-thread

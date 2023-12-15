@@ -1,7 +1,3 @@
-//plugins {
-//    java app
-//}
-
 subprojects {
     // Do we really need to declare this java plugin here *and* at the top of this file?
     apply(plugin = "java")
@@ -9,12 +5,6 @@ subprojects {
 
     repositories {
         mavenCentral()
-    }
-
-    configure<JavaPluginExtension> {
-        toolchain {
-            languageVersion.set(JavaLanguageVersion.of(17))
-        }
     }
 
     tasks {

@@ -24,7 +24,7 @@ rootProject.name = "java-concurrency-playground"
 // You get code completion and project navigation out-of-the-box. Pretty slick!
 
 include("interrupts",
-//        "loom",
+        "virtual-threads",
         "mock-api",
         "signals",
         "completable-future",

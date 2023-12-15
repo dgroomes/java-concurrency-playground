@@ -9,7 +9,7 @@ that was introduced in Java 11.
 
 Follow these instructions to run the demo program:
 
-1. Use Java 17
+1. Use Java 21
 2. Start the Mock API
     * Follow the instructions in the README at [../mock-api/](../mock-api/)
 3. Run the program:

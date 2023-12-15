@@ -7,7 +7,7 @@ Learning about interrupts <https://docs.oracle.com/javase/tutorial/essential/con
 
 Follow these instructions to run the demo program:
 
-1. Use Java 17
+1. Use Java 21
 2. Run the program:
    * ```shell
      java src/main/java/dgroomes/InterruptsRunner.java

@@ -13,11 +13,11 @@ re-using the code.
 The subprojects include:
 
 
-### `loom/`
+### `virtual-threads/`
 
-Learning about _Project Loom_ and the new "virtual" threads <https://wiki.openjdk.java.net/display/loom/Main>.
+A simple demonstration of virtual threads. 
 
-See the README in [loom/](loom/).
+See the README in [virtual-threads/](virtual-threads/).
 
 
 ### `interrupts/`
@@ -58,18 +58,11 @@ Learning how signals, like `SIGINT`, are handled by a Java program.
 See the README in [signals/](signals/).
 
 
-## Help
-
-The `loom/` subproject is especially advanced to use because it requires an experimental build of OpenJDK.
-So, for the sake of the usability of the whole project, I've commented out the `:loom` subproject from being imported
-in the root Gradle project (`settings.gradle.kts`).
-
-
 ## Wish List
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* [ ] Rename `loom` to `virtual-threads`
-* [ ] Configure `loom/virtual-threads` as a Gradle project
+* [x] DONE Rename `loom` to `virtual-threads`
+* [x] DONE Configure `loom/virtual-threads` as a Gradle subproject
 * [ ] Upgrade to Gradle 8.5
 * [ ] Upgrade to Java 21

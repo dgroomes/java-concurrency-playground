@@ -19,7 +19,7 @@ Still, I might consider moving this subproject somewhere else.
 
 Follow these instructions to run the demo program and send signals to interactively:
 
-1. Use Java 17
+1. Use Java 21
 2. Start the program:
    ```shell
    java src/main/java/dgroomes/SignalsRunner.java
