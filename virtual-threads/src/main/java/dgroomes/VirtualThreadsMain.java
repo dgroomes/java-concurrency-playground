@@ -36,6 +36,7 @@ public class VirtualThreadsMain {
             executor.submit(task2);
             executor.shutdown();
             log.info("Wait for the tasks to execute to completion");
+            //noinspection ResultOfMethodCallIgnored
             executor.awaitTermination(5, TimeUnit.SECONDS);
         }
 

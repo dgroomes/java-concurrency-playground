@@ -25,7 +25,8 @@ rootProject.name = "java-concurrency-playground"
 
 include("interrupts",
         "virtual-threads",
-        "mock-api",
         "signals",
         "completable-future",
         "timer")
+
+includeBuild("mock-api")

@@ -39,6 +39,7 @@ public class TimerRepeatingTasksMain {
                     System.out.println("Done sleeping");
                 } catch (InterruptedException e) {
                     System.err.println("Task was interrupted.");
+                    //noinspection CallToPrintStackTrace
                     e.printStackTrace();
                 }
             }
@@ -47,7 +48,7 @@ public class TimerRepeatingTasksMain {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Shutdown hook triggered. Should we stop the timer (via the 'cancel' method)? Or does the " +
                     "runtime do that automatically?");
-            System.out.println("State of the timer: %s".formatted(timer));
+            System.out.printf("State of the timer: %s%n", timer);
             timer.cancel();
             timer.purge();
         }));

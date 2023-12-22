@@ -29,11 +29,6 @@ Follow these instructions to run the demo program:
      Got response: Hello C! (delayed by 4 seconds)
      Finished. Execution time: PT4.032173S
      ```
-4. Alternatively, run the second program called `ComposingMain`:
-   * This project goes into more depth. Run it with the following command.
-   * ```shell
-     java completable-future/src/main/java/dgroomes/ComposingMain.java
-     ```
 
 
 ## Reference 

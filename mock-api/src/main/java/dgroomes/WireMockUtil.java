@@ -31,7 +31,7 @@ public class WireMockUtil {
         var filesSource = fileSource(filesDirectoryPath, "files");
         options.fileSource(filesSource);
         var mappingsSource = fileSource(mappingsDirectoryPath, "mappings");
-        options.mappingSource(new JsonFileMappingsSource(mappingsSource));
+        options.mappingSource(new JsonFileMappingsSource(mappingsSource, null));
     }
 
     /**
@@ -46,7 +46,7 @@ public class WireMockUtil {
         var file = path.toFile();
         if (!file.exists()) {
             var msg = String.format("""
-                    Can not enable the %s directory because the directory was not found 
+                    Can not enable the %s directory because the directory was not found
                       Provided path: %s
                       Absolute path: %s
                     """, type, dirPath, path.toAbsolutePath());
