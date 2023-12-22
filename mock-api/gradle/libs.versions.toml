@@ -1,8 +1,0 @@
-[versions]
-slf4j = "2.0.9" # SLF4J releases: http://www.slf4j.org/news.html
-wiremock = "3.3.1" # WireMock releases: https://github.com/wiremock/wiremock/releases
-
-[libraries]
-wiremock = { module = "org.wiremock:wiremock", version.ref = "wiremock" }
-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
-slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }

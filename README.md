@@ -27,18 +27,9 @@ Learning about interrupts <https://docs.oracle.com/javase/tutorial/essential/con
 See the README in [interrupts/](interrupts/).
 
 
-###  `mock-api/`
-
-Run an instance of the excellent HTTP mock server WireMock <http://wiremock.org/docs/>. This subproject only serves as
-a vehicle to exercise the concurrency constructs of the other subprojects.
-
-See the README in [mock-api/](mock-api/).   
-
-
 ### `completable-future/`
 
-Learning about `CompletableFuture` <https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/concurrent/CompletableFuture.html>
-and related APIs.
+Simulate the execution of long-running work and show the power of `CompletableFuture` to execute that work concurrently.
 
 See the README in [completable-future/](completable-future/).
 
@@ -67,8 +58,8 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * [x] DONE Upgrade to Gradle 8.5
 * [x] DONE Upgrade to Java 21
 * [x] DONE Unnest the `src/main/java` dirs in the non-Gradle native projects. We're only using Gradle as a way for the IDE
-  to understand the project structure but I don't want to pay the price of having to have a `src/main/java` dir in these
+  to understand the project structure, but I don't want to pay the price of having to have a `src/main/java` dir in these
   projects.
-* [ ] Move `mock-api` to my `wiremock-playground` repo. I originally included it here as a way to explore completable futures
+* [x] DONE Move `mock-api` to my `wiremock-playground` repo. I originally included it here as a way to explore completable futures
   with a workload I was familiar with in real work, but I can de-scope it now and instead create an in-process mock API
   using timers or something. Or better yet sleeps and virtual threads.

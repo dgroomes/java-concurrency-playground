@@ -11,7 +11,9 @@ import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * TODO NOT YET FULLY IMPLEMENTED
+ * THIS WAS PARTIALLY IMPLEMENTED but I didn't finish it, and it won't work, especially because I've removed the WireMock
+ * integration in this repository. This code needs to be re-written or deleted.
+ * <p>
  * Composing instances of CompletableFuture.
  */
 public class ComposingMain {

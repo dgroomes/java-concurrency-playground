@@ -1,8 +1,6 @@
 # completable-future
 
-This subproject executes HTTP requests to the [Mock API](../mock-api) using asynchronous requests to showcase the power
-of `CompletableFuture` and the built-in [Java HTTP client](https://openjdk.java.net/groups/net/httpclient/intro.html) 
-that was introduced in Java 11.
+Simulate the execution of long-running work and show the power of `CompletableFuture` to execute that work concurrently.
 
 
 ## Instructions
@@ -10,24 +8,22 @@ that was introduced in Java 11.
 Follow these instructions to run the demo program:
 
 1. Use Java 21
-2. Start the Mock API
-    * Follow the instructions in the README at [../mock-api/](../mock-api/)
-3. Run the program:
+2. Run the program:
    * ```shell
      java src/dgroomes/CompletableFuturesMain.java
      ```
    * You should see output like this:
      ```txt
-     Executing the program with an implementation that uses synchronously executed HTTP requests. In other words, *no concurrency*.
-     Got response: Hello A! (delayed by 1 seconds)
-     Got response: Hello B! (delayed by 2 seconds)
-     Got response: Hello C! (delayed by 4 seconds)
-     Finished. Execution time: PT7.185646S
-     Executing the program with an implementation that uses concurrent HTTP requests. Notice how it executes quicker than before.
-     Got response: Hello A! (delayed by 1 seconds)
-     Got response: Hello B! (delayed by 2 seconds)
-     Got response: Hello C! (delayed by 4 seconds)
-     Finished. Execution time: PT4.032173S
+     Executing the program with an implementation that uses synchronously executed simulated work. In other words, *no concurrency*.
+     Performed a small amount of work (1 second)
+     Performed a medium amount of work (2 seconds)
+     Performed a large amount of work (4 seconds)
+     Finished. Execution time: PT7.015796S
+     Executing the program with an implementation that kicks off simulated work concurrently. Notice how it executes quicker than before.
+     Performed a small amount of work (1 second)
+     Performed a medium amount of work (2 seconds)
+     Performed a large amount of work (4 seconds)
+     Finished. Execution time: PT4.005475S
      ```
 
 

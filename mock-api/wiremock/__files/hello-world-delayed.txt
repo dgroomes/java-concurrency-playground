@@ -1,1 +1,0 @@
-Hello {{ defaultIfEmpty request.requestLine.query.name "DefaultHuman" }}! (delayed by {{request.requestLine.query.delay}} seconds)
