@@ -21,9 +21,9 @@ Follow these instructions to run the demo program and send signals to interactiv
 
 1. Use Java 21
 2. Start the program:
-   ```shell
-   java src/main/java/dgroomes/SignalsRunner.java
-   ```
+   * ```shell
+     java src/dgroomes/SignalsRunner.java
+     ```
 3. Interrupt the program
    * Send an interrupt signal from the commandline with the `Ctrl + C` keyboard shortcut.
    * The `Ctrl + C` keyboard shortcut sends a `SIGINT` signal to the program. This is an operating system feature. `SIGINT`
@@ -31,7 +31,7 @@ Follow these instructions to run the demo program and send signals to interactiv
 4. Watch the program gracefully terminate
    * Altogether, it will look something like this:
      ```text
-     $ java src/main/java/dgroomes/SignalsRunner.java
+     $ java src/dgroomes/SignalsRunner.java
      [12:35:30.64 - main] The `main` method has completed, but the program will continue running because of the scheduled executor.
      [12:35:30.64 - pool-2-thread-1] Doing unit-of-work '1'. This will take a little while...
      [12:35:31.63 - pool-2-thread-2] Doing unit-of-work '2'. This will take a little while...

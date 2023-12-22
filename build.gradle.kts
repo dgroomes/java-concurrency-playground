@@ -1,4 +1,4 @@
 subprojects {
-    apply(plugin = "java")
+    apply(plugin = "common")
 }
 

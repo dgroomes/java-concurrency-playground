@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * because (I think) it is so late in the lifecycle of the app that new log statements to JUL aren't guaranteed to get
  * written (and I couldn't figure out how to flush the logger...).
  * <p>
- * See https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/Timer.html
+ * See the JavaDoc {@link Timer}: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Timer.html
  */
 public class TimerRepeatingTasksMain {
 

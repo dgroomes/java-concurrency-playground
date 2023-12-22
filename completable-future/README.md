@@ -14,7 +14,7 @@ Follow these instructions to run the demo program:
     * Follow the instructions in the README at [../mock-api/](../mock-api/)
 3. Run the program:
    * ```shell
-     java src/main/java/dgroomes/CompletableFuturesMain.java
+     java src/dgroomes/CompletableFuturesMain.java
      ```
    * You should see output like this:
      ```txt

@@ -20,23 +20,23 @@ Follow these instructions to run the programs:
 
 1. Use Java 21
 2. Try a combination of these invocations of the programs:
-  * ```shell
-    java src/main/java/dgroomes/TimerDaemonMain.java --non-daemon-thread
-    ```
-  * ```shell
-    java src/main/java/dgroomes/TimerDaemonMain.java --daemon-thread
-    ```
-  * ```shell
-    java src/main/java/dgroomes/TimerRepeatingTasksMain.java
-    ```
-  * (debug mode)
-    ```shell
-    java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 src/main/java/dgroomes/TimerRepeatingTasksMain.java
-    ```
-  * (record a Java Flight Recording (JFR))
-    ```shell
-    java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:StartFlightRecording,dumponexit=true src/main/java/dgroomes/TimerRepeatingTasksMain.java
-    ```
-  * ```shell
-    java src/main/java/dgroomes/TimerMultipleTasksMain.java
-    ```
+   * ```shell
+     java src/dgroomes/TimerDaemonMain.java --non-daemon-thread
+     ```
+   * ```shell
+     java src/dgroomes/TimerDaemonMain.java --daemon-thread
+     ```
+   * ```shell
+     java src/dgroomes/TimerRepeatingTasksMain.java
+     ```
+   * (debug mode)
+     ```shell
+     java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 src/main/java/dgroomes/TimerRepeatingTasksMain.java
+     ```
+   * (record a Java Flight Recording (JFR))
+     ```shell
+     java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:StartFlightRecording,dumponexit=true src/main/java/dgroomes/TimerRepeatingTasksMain.java
+     ```
+   * ```shell
+     java src/dgroomes/TimerMultipleTasksMain.java
+     ```

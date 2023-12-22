@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
  * Showcasing all of:
  * 1) the effect of concurrent programming
  * 2) the programming model of CompletableFuture
- * 3) the built-in Java HTTP client that was introduced in Java 11 https://openjdk.java.net/groups/net/httpclient/intro.html
+ * 3) the <a href="https://openjdk.java.net/groups/net/httpclient/intro.html">built-in Java HTTP client</a> that was introduced in Java 11
  */
 public class CompletableFuturesMain {
 

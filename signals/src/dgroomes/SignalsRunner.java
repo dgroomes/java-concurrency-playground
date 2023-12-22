@@ -16,8 +16,8 @@ public class SignalsRunner {
 
   public static void main(String[] args) {
 
-    var scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-    var workerExecutor = Executors.newFixedThreadPool(10);
+    @SuppressWarnings("resource") var scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+    @SuppressWarnings("resource") var workerExecutor = Executors.newFixedThreadPool(10);
 
     var unitOfWorkId = new AtomicInteger(0);
     Runnable unitOfWork = () -> {
@@ -50,6 +50,7 @@ public class SignalsRunner {
         }
       } catch (InterruptedException e) {
         log("The thread was interrupted during the shutdown hook.");
+        //noinspection CallToPrintStackTrace
         e.printStackTrace();
       }
     }));

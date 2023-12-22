@@ -66,7 +66,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * [x] DONE Configure `loom/virtual-threads` as a Gradle subproject
 * [x] DONE Upgrade to Gradle 8.5
 * [x] DONE Upgrade to Java 21
-* [ ] Unnest the `src/main/java` dirs in the non-Gradle native projects. We're only using Gradle as a way for the IDE
+* [x] DONE Unnest the `src/main/java` dirs in the non-Gradle native projects. We're only using Gradle as a way for the IDE
   to understand the project structure but I don't want to pay the price of having to have a `src/main/java` dir in these
   projects.
 * [ ] Move `mock-api` to my `wiremock-playground` repo. I originally included it here as a way to explore completable futures

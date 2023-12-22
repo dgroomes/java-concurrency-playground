@@ -15,11 +15,11 @@ were finalized in Java 21 and are described by [JEP 444](https://openjdk.org/jep
 1. Use Java 21
 2. Run the program:
    * ```shell
-     java src/main/java/dgroomes/VirtualThreadsMain.java
+     java src/dgroomes/VirtualThreadsMain.java
      ```
    * It will print something like the following.
    * ```text
-     $ java src/main/java/dgroomes/VirtualThreadsMain.java
+     $ java src/dgroomes/VirtualThreadsMain.java
      2023-12-15 01:00:59 INFO dgroomes.VirtualThreadsMain main Hello! Hello! Let's implement something with Virtual Threads (JEP 444).
      2023-12-15 01:00:59 INFO dgroomes.VirtualThreadsMain main Wait for the tasks to execute to completion
      2023-12-15 01:00:59 INFO dgroomes.VirtualThreadsMain lambda$main$0 Hello!

@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 /**
  * Illustrating how `java.util.Timer` works with multiple tasks.
  * <p>
- * See https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/Timer.html
+ * See the JavaDoc {@link Timer}: https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Timer.html
  */
 public class TimerMultipleTasksMain {
 
