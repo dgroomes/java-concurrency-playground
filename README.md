@@ -63,3 +63,8 @@ General clean-ups, TODOs and things I wish to implement for this project:
 * [x] DONE Move `mock-api` to my `wiremock-playground` repo. I originally included it here as a way to explore completable futures
   with a workload I was familiar with in real work, but I can de-scope it now and instead create an in-process mock API
   using timers or something. Or better yet sleeps and virtual threads.
+* [ ] Show how to use `sun.misc.Signal` instead of just a shutdown hook. While the `sun` package feels like an overall
+  no-no because of the name plus the very frowned-upon `sun.misc.Unsafe`, `sun.misc.Signal` is a well-implemented,
+  reasonable, and platform-independent thing/API and it's doubtful that it will be wholesale removed. I think there's
+  just not enough motivation to change it. Maybe they'll move it to a different package some day. Either way, the API is
+  great.
