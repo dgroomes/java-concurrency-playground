@@ -1,39 +1,42 @@
 # auto-batching-buffer-2
 
-A second take on the auto-batching buffer pattern, with a longer-running demo and more flushes.
+Auto-batching for concurrent writers across a latency boundary, without explicit flush calls or timers.
 
 
 ## Overview
 
-This pattern is for concurrent writers pushing data across a latency boundary (e.g., network I/O). Instead of explicit
-`flush()` calls or timers, batching emerges from backpressure:
+This project models a shared remote resource (e.g., a database connection) that can only handle one flush at a time.
+Multiple concurrent writers call `write()` with no coordination. The buffer automatically batches writes by exploiting
+natural backpressure:
 
-- Only one flush runs at a time.
-- While a flush is in progress, writers keep enqueueing.
-- When the flush finishes, the queued elements flush as a batch.
+- If no flush is in progress, the writer triggers a flush immediately.
+- If a flush is in progress, writers enqueue and return.
+- When the flush completes, any queued elements flush as a batch.
 
-The demos here are tuned to show **many flushes** so the story is clearer.
+Batching emerges from contention and latency, not from timers or explicit `flush()` calls.
 
 
 ## Cost model
 
 Each flush costs:
 
-$\text{cost} = \text{fixed latency} + (\text{elements} \times \text{per-element cost})$
+$$
+	ext{cost} = \text{fixed latency} + (\text{elements} \times \text{per-element cost})
+$$
 
-This makes batching highly beneficial.
+Batching amortizes the fixed latency cost across many elements.
 
 
 ## Instructions
 
 1. Use Java 21
-2. Run the baseline:
+2. Run the eager-flush baseline:
    * ```shell
      java src/dgroomes/EagerFlushDemo.java
      ```
-3. Run the auto-batching version:
+3. Run the auto-batching buffer:
    * ```shell
      java src/dgroomes/AutoBatchingDemo.java
      ```
 
-Compare total time and the number of flushes.
+Compare the execution time and the number of flushes to see the effect of automatic batching.
