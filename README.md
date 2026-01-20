@@ -53,18 +53,20 @@ See the README in [signals/](signals/).
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* [x] DONE Rename `loom` to `virtual-threads`
-* [x] DONE Configure `loom/virtual-threads` as a Gradle subproject
-* [x] DONE Upgrade to Gradle 8.5
-* [x] DONE Upgrade to Java 21
-* [x] DONE Unnest the `src/main/java` dirs in the non-Gradle native projects. We're only using Gradle as a way for the IDE
+- [x] DONE Rename `loom` to `virtual-threads`
+- [x] DONE Configure `loom/virtual-threads` as a Gradle subproject
+- [x] DONE Upgrade to Gradle 8.5
+- [x] DONE Upgrade to Java 21
+- [x] DONE Unnest the `src/main/java` dirs in the non-Gradle native projects. We're only using Gradle as a way for the IDE
   to understand the project structure, but I don't want to pay the price of having to have a `src/main/java` dir in these
   projects.
-* [x] DONE Move `mock-api` to my `wiremock-playground` repo. I originally included it here as a way to explore completable futures
+- [x] DONE Move `mock-api` to my `wiremock-playground` repo. I originally included it here as a way to explore completable futures
   with a workload I was familiar with in real work, but I can de-scope it now and instead create an in-process mock API
   using timers or something. Or better yet sleeps and virtual threads.
-* [ ] Show how to use `sun.misc.Signal` instead of just a shutdown hook. While the `sun` package feels like an overall
+- [ ] Show how to use `sun.misc.Signal` instead of just a shutdown hook. While the `sun` package feels like an overall
   no-no because of the name plus the very frowned-upon `sun.misc.Unsafe`, `sun.misc.Signal` is a well-implemented,
   reasonable, and platform-independent thing/API and it's doubtful that it will be wholesale removed. I think there's
   just not enough motivation to change it. Maybe they'll move it to a different package some day. Either way, the API is
   great.
+- [ ] IN PROGRESS "Buffering flush" example
+    - I want something like the buffering you get with BufferedWriter, but I want it for two "channels" so to speak.

@@ -27,4 +27,5 @@ include("interrupts",
         "virtual-threads",
         "signals",
         "completable-future",
-        "timer")
+        "timer",
+        "buffering-channels")
