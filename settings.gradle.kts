@@ -29,4 +29,5 @@ include("interrupts",
         "completable-future",
         "timer",
         "buffering-channels",
-        "auto-batching-buffer")
+        "auto-batching-buffer",
+        "auto-batching-buffer-2")

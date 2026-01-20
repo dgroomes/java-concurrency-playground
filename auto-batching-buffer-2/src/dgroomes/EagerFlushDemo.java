@@ -1,0 +1,104 @@
+package dgroomes;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.List;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
+
+public class EagerFlushDemo {
+    private static final Logger log = Logger.getAnonymousLogger();
+
+    private static final int NUM_WRITERS = 6;
+    private static final int RECORDS_PER_WRITER = 10;
+    private static final Duration FIXED_LATENCY = Duration.ofMillis(40);
+    private static final Duration PER_ELEMENT_COST = Duration.ofMillis(8);
+
+    public static void main(String[] args) throws InterruptedException {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "%1$tF %1$tT.%1$tL %4$s [%3$s] %5$s%6$s%n");
+
+        log.info("=== Eager Flush Demo (Baseline) ===");
+        log.info("Writers: %d, Records per writer: %d".formatted(NUM_WRITERS, RECORDS_PER_WRITER));
+        log.info("Fixed latency: %dms, Per-element cost: %dms".formatted(
+                FIXED_LATENCY.toMillis(), PER_ELEMENT_COST.toMillis()));
+        log.info("");
+
+        var database = new SimulatedDatabase(FIXED_LATENCY, PER_ELEMENT_COST);
+        var eagerBuffer = new EagerFlushBuffer(database);
+
+        Instant start = Instant.now();
+
+        try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+            var latch = new CountDownLatch(NUM_WRITERS);
+
+            for (int w = 0; w < NUM_WRITERS; w++) {
+                final int writerId = w;
+                executor.submit(() -> {
+                    try {
+                        for (int r = 0; r < RECORDS_PER_WRITER; r++) {
+                            String record = "w%d-r%d".formatted(writerId, r);
+                            eagerBuffer.write(record);
+                        }
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    } finally {
+                        latch.countDown();
+                    }
+                });
+            }
+
+            latch.await();
+        }
+
+        Instant end = Instant.now();
+        Duration elapsed = Duration.between(start, end);
+
+        log.info("");
+        log.info("=== Results ===");
+        log.info("Total records written: %d".formatted(database.totalRecordsWritten()));
+        log.info("Total flush operations: %d".formatted(database.totalFlushOperations()));
+        log.info("Total execution time: %s".formatted(elapsed));
+        log.info("");
+    }
+
+    static class SimulatedDatabase {
+        private final Duration fixedLatency;
+        private final Duration perElementCost;
+        private final AtomicInteger totalRecordsWritten = new AtomicInteger();
+        private final AtomicInteger totalFlushOperations = new AtomicInteger();
+        private final Semaphore lock = new Semaphore(1);
+
+        SimulatedDatabase(Duration fixedLatency, Duration perElementCost) {
+            this.fixedLatency = fixedLatency;
+            this.perElementCost = perElementCost;
+        }
+
+        void write(List<String> records) throws InterruptedException {
+            lock.acquire();
+            try {
+                long totalMs = fixedLatency.toMillis() + (records.size() * perElementCost.toMillis());
+                Thread.sleep(totalMs);
+                totalRecordsWritten.addAndGet(records.size());
+                totalFlushOperations.incrementAndGet();
+            } finally {
+                lock.release();
+            }
+        }
+
+        int totalRecordsWritten() { return totalRecordsWritten.get(); }
+        int totalFlushOperations() { return totalFlushOperations.get(); }
+    }
+
+    static class EagerFlushBuffer {
+        private final SimulatedDatabase database;
+
+        EagerFlushBuffer(SimulatedDatabase database) {
+            this.database = database;
+        }
+
+        void write(String record) throws InterruptedException {
+            database.write(List.of(record));
+        }
+    }
+}
