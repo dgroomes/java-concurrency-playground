@@ -91,9 +91,8 @@ public class AutoBatchingDemo {
         private final SimulatedDatabase database;
         private final int maxBatchSize;
         private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
-        private final Semaphore flushSemaphore = new Semaphore(1);
+        private final AtomicInteger wip = new AtomicInteger(0);
         private final ExecutorService flushExecutor = Executors.newSingleThreadExecutor();
-        private volatile Future<?> lastFlush = CompletableFuture.completedFuture(null);
 
         AutoBatchingBuffer(SimulatedDatabase database, int maxBatchSize) {
             this.database = database;
@@ -102,22 +101,30 @@ public class AutoBatchingDemo {
 
         void write(String record) {
             queue.add(record);
-            tryFlush();
+            tryScheduleFlush();
         }
 
-        private void tryFlush() {
-            if (flushSemaphore.tryAcquire()) {
-                lastFlush = flushExecutor.submit(() -> {
-                    try {
-                        flushLoop();
-                    } finally {
-                        flushSemaphore.release();
-                    }
-                });
+        private void tryScheduleFlush() {
+            if (wip.getAndIncrement() == 0) {
+                flushExecutor.submit(this::flushLoop);
             }
         }
 
         private void flushLoop() {
+            int missed = 1;
+            while (true) {
+                // Drain queue and flush until empty
+                drainAndFlush();
+
+                // Check if more work arrived while we were flushing
+                missed = wip.addAndGet(-missed);
+                if (missed == 0) {
+                    return;
+                }
+            }
+        }
+
+        private void drainAndFlush() {
             while (true) {
                 List<String> batch = drainQueue();
                 if (batch.isEmpty()) {
@@ -145,10 +152,12 @@ public class AutoBatchingDemo {
         }
 
         void awaitCompletion() throws InterruptedException {
+            // Submit a task to the single-thread executor.
+            // It will only run after any active flushLoop() completes.
             try {
-                lastFlush.get();
+                flushExecutor.submit(() -> {}).get();
             } catch (ExecutionException e) {
-                throw new RuntimeException("Flush failed", e);
+                throw new RuntimeException("Wait failed", e);
             }
             flushExecutor.shutdown();
             flushExecutor.awaitTermination(10, TimeUnit.SECONDS);

@@ -1,5 +1,7 @@
 # auto-batching-buffer
 
+WORK IN PROGRESS: Barely reviewed, and AI sloppy, but useful for what I need.
+
 Exploring an auto-batching buffer that achieves efficient batching through natural backpressure, without explicit flush
 calls or timers.
 
