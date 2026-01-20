@@ -21,10 +21,20 @@ Batching emerges from contention and latency, not from timers or explicit `flush
 Each flush costs:
 
 $$
-	ext{cost} = \text{fixed latency} + (\text{elements} \times \text{per-element cost})
+  ext{cost} = \text{fixed latency} + (\text{elements} \times \text{per-element cost})
 $$
 
 Batching amortizes the fixed latency cost across many elements.
+
+
+## Sample results
+
+These are representative results from the included demos (60 total records):
+
+- Eager flush: 60 flushes, ~3.13s
+- Auto-batching: 5 flushes, ~0.70s
+
+This shows the fixed latency cost being amortized across batches.
 
 
 ## Instructions
